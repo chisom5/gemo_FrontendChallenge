@@ -1,7 +1,6 @@
 import HOME_CONSTANT from "./constant";
-import {
-  makeGetRequest,
-} from "./api";
+import axios from "axios";
+import baseUrl from "../../../config/baseUrl";
 
 const homeActionsSuccess = (actionType, payload) => ({
   type: HOME_CONSTANT[`${actionType}Success`],
@@ -36,32 +35,21 @@ export const handleSetError = (payload) => (dispatch) => {
 };
 
 // reservtion dashbord top chart data
-export const fetchAllScans = (history, storgeIviteId) => {
-  const actionType = "allScans";
+export const fetchTrendingRepos = (params) => {
+  const actionType = "trendingRepos";
   return async (dispatch) => {
     try {
       dispatch(homeActionsRequested(actionType));
-      const res = await makeGetRequest(
-        `/scans` 
-      );
-
+      const res = await axios.get(`${baseUrl}/search/repositories?q=created:>2017-10-22&sort=stars&order=desc&page=${params}`)
       if (res.status !== 200) {
         dispatch(homeActionsError(actionType, res.data.msg));
       } else {
         console.log(res.data, "res");
-        dispatch(homeActionsSuccess(actionType, res.data.data));
+        dispatch(homeActionsSuccess(actionType, res.data));
       }
     } catch (error) {
-      // console.log(error);
       if (error.response) {
-        if (error.response.status === 401) {
-          history.push(`/?inviteId=${storgeIviteId}`);
-          sessionStorage.removeItem("PEP_XX_Token");
-        } else {
-          return dispatch(
-            homeActionsError(actionType, error.response.data.msg)
-          );
-        }
+        return dispatch(homeActionsError(actionType, error.response.data.msg));
       } else if (error.request) {
         // console.log(error.request)
         return dispatch(homeActionsError(actionType, "Network error"));

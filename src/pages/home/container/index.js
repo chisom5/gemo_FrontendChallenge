@@ -1,17 +1,17 @@
 import {
   clearErrorMessage,
   clearSuccessMessage,
-  fetchAllScans
+  fetchTrendingRepos
 } from "../reduxFunctions/actions";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import HomeComponent from "../components";
 
 const mapStateToProps = (state) => ({
-  error: state.globalReducer.error || state.homeReducer.error,
-  success: state.globalReducer.success || state.homeReducer.success,
-  // recentScanData: state.homeReducer.recentScanData,
-  // isScanning: state.homeReducer.isScanning
+  error:  state.homeReducer.error,
+  success:  state.homeReducer.success,
+  trendingReposArr: state.homeReducer.trendingReposArr
+ 
 });
 
 const mapDispatchToProps = (dispatch) =>
@@ -19,7 +19,7 @@ const mapDispatchToProps = (dispatch) =>
     {
       clearErrorMessage,
       clearSuccessMessage,
-      fetchAllScans
+      fetchTrendingRepos
     },
     dispatch
   );

@@ -1,7 +1,7 @@
 const HOME_CONSTANT = {
-  allScansRequested: "ALL SCANS Requested",
-  allScansSuccess: "ALL SCANS SUCCESS",
-  allScansError: "ALL SCANS ERROR",
+  trendingReposRequested: "ALL SCANS Requested",
+  trendingReposSuccess: "ALL SCANS SUCCESS",
+  trendingReposError: "ALL SCANS ERROR",
 
   setErrorSuccess: "SET ERROR SUCCESS",
 

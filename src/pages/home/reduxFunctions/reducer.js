@@ -5,7 +5,7 @@ const initialState = {
   success: null,
   error: null,
   isFetching: false,
-  recentScanData: [],
+  trendingReposArr: null,
 };
 
 const requestingHome = (state, loading) =>
@@ -17,7 +17,7 @@ const requestingHome = (state, loading) =>
 
 const handleFetchedScanned = (state, { payload }) =>
   update(state, {
-    recentScanData: {
+    trendingReposArr: {
       $set: payload,
     },
     isFetching: {
@@ -60,11 +60,11 @@ const clearSuccessMessage = (state) =>
 
 const homeReducer = (state = initialState, action) => {
   switch (action.type) {
-    case HOME_CONSTANT.allScansRequested:
+    case HOME_CONSTANT.trendingReposRequested:
       return requestingHome(state, "isFetching");
-    case HOME_CONSTANT.allScansError:
+    case HOME_CONSTANT.trendingReposError:
       return handleError(state, action);
-    case HOME_CONSTANT.allScansSuccess:
+    case HOME_CONSTANT.trendingReposSuccess:
       return handleFetchedScanned(state, action);
 
     case HOME_CONSTANT.setErrorSuccess:

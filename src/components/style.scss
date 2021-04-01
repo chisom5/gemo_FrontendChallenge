@@ -41,4 +41,16 @@
 }
 .list__content .list__content_otherdescription {
   display: flex;
+
+  div{
+    padding: 3px 5px;
+    border: 1px solid #000;
+    width: 60px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+  }
+  .stargazers{
+    margin-right: 0.5rem;
+  }
 }
