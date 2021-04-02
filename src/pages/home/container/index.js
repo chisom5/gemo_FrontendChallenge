@@ -10,8 +10,8 @@ import HomeComponent from "../components";
 const mapStateToProps = (state) => ({
   error:  state.homeReducer.error,
   success:  state.homeReducer.success,
-  trendingReposArr: state.homeReducer.trendingReposArr
- 
+  trendingReposArr: state.homeReducer.trendingReposArr,
+  isFetching: state.homeReducer.isFetching
 });
 
 const mapDispatchToProps = (dispatch) =>

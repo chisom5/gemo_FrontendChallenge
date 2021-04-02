@@ -12,6 +12,9 @@
   flex-direction: column;
   width: 100vw;
 
+  .ant-spin-spinning{
+    margin-bottom: 0.5rem !important;
+  }
   .paginated {
     display: flex;
     width: 70%;
