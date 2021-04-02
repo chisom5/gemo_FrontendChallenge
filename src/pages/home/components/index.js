@@ -42,6 +42,7 @@ class HomeComponent extends Component {
                 current={this.state.current}
                 onChange={this.onChange}
                 showSizeChanger ={false}
+                size="small"
                 total={
                   this.props.trendingReposArr !== null &&
                   this.props.trendingReposArr.total_count
