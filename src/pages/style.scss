@@ -9,12 +9,21 @@
 
 .mini__container {
   display: flex;
+  flex-direction: column;
   width: 100vw;
+
+  .paginated {
+    display: flex;
+    width: 70%;
+    margin-right: auto;
+    margin-left: auto;
+    justify-content: flex-end;
+  }
 }
 .main__content {
   display: flex;
   flex-direction: column;
   width: 100%;
-    align-items: center;
-    margin-top: 1rem;
+  align-items: center;
+  margin-top: 1rem;
 }

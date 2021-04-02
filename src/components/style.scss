@@ -38,11 +38,18 @@
   display: flex;
   flex-direction: column;
   margin-left: 1rem;
+
+  #desc {
+    margin-bottom: 1rem;
+  }
 }
 .list__content .list__content_otherdescription {
   display: flex;
 
-  div{
+  p{
+    margin-left: 0.5rem;
+  }
+  div {
     padding: 3px 5px;
     border: 1px solid #000;
     width: 60px;
@@ -50,7 +57,7 @@
     display: flex;
     justify-content: center;
   }
-  .stargazers{
+  .stargazers {
     margin-right: 0.5rem;
   }
 }
